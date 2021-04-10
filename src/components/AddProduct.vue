@@ -6,20 +6,31 @@
           <b-form autocomplete="off">
             <b-form-group
               label="Name">
-              <b-form-input v-model="form.name" id="name" name="name" trim></b-form-input>
+              <b-form-input v-model="form.name" v-validate="{required: true, min: 3}" id="name" name="name" trim></b-form-input>
+              <div v-if="submitted" class="error-message">
+                {{errors.first('name')}}
+              </div>
             </b-form-group>
             <b-form-group
               label="Price ($)">
-              <b-form-input v-model="form.price" id="price" name="price" trim></b-form-input>
+              <b-form-input v-model="form.price" v-validate="{required: true, numeric: true}" id="price" name="price" trim></b-form-input>
+              <div v-if="submitted" class="error-message">
+                {{errors.first('price')}}
+              </div>              
             </b-form-group>
             <b-form-group
               label="Brand">
-              <b-form-input v-model="form.brand" id="brand" name="brand" trim></b-form-input>
+              <b-form-input v-model="form.brand" v-validate="{required: true}" id="brand" name="brand" trim></b-form-input>
+              <div v-if="submitted" class="error-message">
+                {{errors.first('brand')}}
+              </div>              
             </b-form-group>
-
             <b-form-group
               label="Inventory?">
-              <b-form-radio v-model="form.inventoryStatus" name="inventory-status" value="true">In stock</b-form-radio>
+              <div v-if="submitted" class="error-message">
+                {{errors.first('inventory-status')}}
+              </div>              
+              <b-form-radio v-model="form.inventoryStatus" v-validate="{required: true}" name="inventory-status" value="true">In stock</b-form-radio>
               <b-form-radio v-model="form.inventoryStatus" name="inventory-status" value="false">Out of stock</b-form-radio>                                   
             </b-form-group>
           </b-form>
@@ -39,11 +50,15 @@ export default {
         price: '',
         brand: '',
         inventoryStatus: ''
-      }
+      },
+      submitted: false
     }
   },
   methods: {
-    addProduct() {
+    async addProduct() {
+      this.submitted = true
+      let ok = await this.$validator.validate()
+      console.log('form ok', ok)
       console.log(this.form)
     }
   }

@@ -27,4 +27,7 @@ export default {
 </script>
 
 <style>
+.error-message {
+  color: red;
+}
 </style>
