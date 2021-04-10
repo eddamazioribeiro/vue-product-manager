@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "name": "Chuck Taylor Sneakers",
+      "name": "Chuck Taylor",
       "price": "$150",
-      "brand": "Converse All-Star",
-      "inventoryStatus": false 
+      "brand": "Converse",
+      "inventoryStatus": true 
     }
   ]
 }

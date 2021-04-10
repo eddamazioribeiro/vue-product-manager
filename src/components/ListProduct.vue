@@ -2,8 +2,24 @@
   <b-col md="4" class="m-3">
     <div>
       <b-card header="List Product">
-        <b-card-text>
-        </b-card-text>
+        <b-card-group deck>
+          <b-card
+            v-for="prod in products" :key="prod.id"
+            :border-variant="prod.inventoryStatus ? 'success' : 'danger'"
+            align="left"
+            style="min-width: 50%;"
+            class="m-3"
+            >
+            <small>
+              <b-badge class="mb-2" :variant="prod.inventoryStatus ? 'success' : 'danger'">
+                {{prod.inventoryStatus ? 'AVAILABLE' : 'OUT OF STOCK'}}
+              </b-badge>
+            </small>
+            <b-card-text><strong>Name: </strong>{{prod.name}}</b-card-text>
+            <b-card-text><strong>Price: </strong>{{prod.price}}</b-card-text>
+            <b-card-text><strong>Brand: </strong>{{prod.brand}}</b-card-text>
+          </b-card>
+        </b-card-group>
       </b-card>
     </div>
   </b-col>
@@ -11,7 +27,7 @@
 
 <script>
 export default {
-
+  props: ['products']
 }
 </script>
 

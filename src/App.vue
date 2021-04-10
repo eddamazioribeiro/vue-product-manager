@@ -4,7 +4,7 @@
     <b-container>
       <b-row class="justify-content-center">
         <AddProduct />
-        <ListProduct />
+        <ListProduct :products="productList"/>
       </b-row>
     </b-container>
   </div>
@@ -33,7 +33,7 @@ export default {
     async getProductList() {
       try {
         let result = await axios.get('http://localhost:3000/products');
-        this.productList = result;
+        this.productList = result.data;
       } catch (err) {
         console.error(err);
       }
