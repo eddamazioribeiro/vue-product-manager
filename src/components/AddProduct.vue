@@ -57,9 +57,9 @@ export default {
   methods: {
     async addProduct() {
       this.submitted = true;
-      let ok = await this.$validator.validate();
+      let formIsValid = await this.$validator.validate();
 
-      if (ok) {
+      if (formIsValid) {
         this.$emit('addProduct', 
           {...this.form, inventoryStatus: this.form.inventoryStatus === 'true'}
         );

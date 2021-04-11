@@ -26,7 +26,7 @@
                 </b-button>
               </b-col>
               <b-col>
-                <UpdateProduct />
+                <UpdateProduct :product="prod"/>
               </b-col>
             </b-row>
           </b-card>
