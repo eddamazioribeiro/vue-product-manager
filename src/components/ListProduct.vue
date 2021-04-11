@@ -31,6 +31,7 @@
             </b-row>
           </b-card>
         </b-card-group>
+        <h2 v-if="products.length < 1">No products found</h2>
       </b-card>
     </div>
   </b-col>
