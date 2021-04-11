@@ -2,23 +2,23 @@
   "products": [
     {
       "id": 1,
-      "name": "Casual shoe",
-      "price": "$200",
+      "name": "Casual shoes",
+      "price": "100",
       "brand": "Nike",
-      "inventoryStatus": false
+      "inventoryStatus": true
     },
     {
       "id": 2,
-      "name": "Chuck Taylor",
-      "price": "$150",
+      "name": "Chuck Taylor All-Star",
+      "price": "155",
       "brand": "Converse",
       "inventoryStatus": true
     },
     {
-      "name": "T-shirt",
+      "name": "Gym T-Shirt",
       "price": "19",
       "brand": "Puma",
-      "inventoryStatus": true,
+      "inventoryStatus": false,
       "id": 3
     }
   ]

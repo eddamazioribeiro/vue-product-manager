@@ -16,7 +16,7 @@
               </b-badge>
             </small>
             <b-card-text><strong>Name: </strong>{{prod.name}}</b-card-text>
-            <b-card-text><strong>Price: </strong>{{prod.price}}</b-card-text>
+            <b-card-text><strong>Price: </strong>${{prod.price}}</b-card-text>
             <b-card-text><strong>Brand: </strong>{{prod.brand}}</b-card-text>
             <hr/>
             <b-row  align="center">
@@ -26,7 +26,7 @@
                 </b-button>
               </b-col>
               <b-col>
-                <UpdateProduct :product="prod"/>
+                <UpdateProduct :product="prod" @updateProduct="updateProduct"/>
               </b-col>
             </b-row>
           </b-card>
@@ -47,6 +47,9 @@ export default {
   methods: {
     deleteProduct(productId) {
       this.$emit('deleteProduct', productId);
+    },
+    updateProduct(editedProduct) {
+      this.$emit('updateProduct', editedProduct);
     }
   }
 }

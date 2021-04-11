@@ -54,6 +54,7 @@ export default {
     return {
       modalShow: false,
       form: {
+        id: '',
         name: '',
         price: '',
         brand: '',
@@ -65,8 +66,6 @@ export default {
   methods: {
     showModal() {
       this.form = {...this.$props.product};
-
-      this.form.price = this.form.price.split('$')[1];
     },
     resetModal() {
       this.form = {};
@@ -78,6 +77,9 @@ export default {
       let formIsValid = await this.$validator.validate();
 
       if (formIsValid) {
+        this.$emit('updateProduct', 
+          {...this.form, inventoryStatus: this.form.inventoryStatus == 'true'});
+
         this.modalShow = false;
         this.submitted = false;
       }
