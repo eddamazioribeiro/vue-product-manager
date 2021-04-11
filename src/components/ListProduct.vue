@@ -19,16 +19,14 @@
             <b-card-text><strong>Price: </strong>{{prod.price}}</b-card-text>
             <b-card-text><strong>Brand: </strong>{{prod.brand}}</b-card-text>
             <hr/>
-            <b-row>
+            <b-row  align="center">
               <b-col>
                 <b-button variant="danger" @click="deleteProduct(prod.id)">
                   <i class="fas fa-trash"></i>
                 </b-button>
               </b-col>
               <b-col>
-                <b-button>
-                  <i class="fas fa-edit"></i>
-                </b-button>
+                <UpdateProduct />
               </b-col>
             </b-row>
           </b-card>
@@ -39,8 +37,13 @@
 </template>
 
 <script>
+import UpdateProduct from './UpdateProduct.vue';
+
 export default {
   props: ['products'],
+  components: {
+    UpdateProduct
+  },
   methods: {
     deleteProduct(productId) {
       this.$emit('deleteProduct', productId);
