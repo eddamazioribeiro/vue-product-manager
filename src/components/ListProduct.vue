@@ -18,6 +18,19 @@
             <b-card-text><strong>Name: </strong>{{prod.name}}</b-card-text>
             <b-card-text><strong>Price: </strong>{{prod.price}}</b-card-text>
             <b-card-text><strong>Brand: </strong>{{prod.brand}}</b-card-text>
+            <hr/>
+            <b-row>
+              <b-col>
+                <b-button variant="danger" @click="deleteProduct(prod.id)">
+                  <i class="fas fa-trash"></i>
+                </b-button>
+              </b-col>
+              <b-col>
+                <b-button>
+                  <i class="fas fa-edit"></i>
+                </b-button>
+              </b-col>
+            </b-row>
           </b-card>
         </b-card-group>
       </b-card>
@@ -27,7 +40,12 @@
 
 <script>
 export default {
-  props: ['products']
+  props: ['products'],
+  methods: {
+    deleteProduct(productId) {
+      this.$emit('deleteProduct', productId);
+    }
+  }
 }
 </script>
 
