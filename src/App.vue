@@ -3,7 +3,7 @@
     <AppHeader />
     <b-container>
       <b-row class="justify-content-center">
-        <AddProduct />
+        <AddProduct @addProduct="addProduct"/>
         <ListProduct :products="productList"/>
       </b-row>
     </b-container>
@@ -36,6 +36,14 @@ export default {
         this.productList = result.data;
       } catch (err) {
         console.error(err);
+      }
+    },
+    async addProduct(newProduct) {
+      try {
+        await axios.post('http://localhost:3000/products', newProduct);
+        this.getProductList();
+      } catch (err) {
+        console.log(err);
       }
     }
   },

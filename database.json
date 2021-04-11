@@ -12,7 +12,14 @@
       "name": "Chuck Taylor",
       "price": "$150",
       "brand": "Converse",
-      "inventoryStatus": true 
+      "inventoryStatus": true
+    },
+    {
+      "name": "T-shirt",
+      "price": "19",
+      "brand": "Puma",
+      "inventoryStatus": true,
+      "id": 3
     }
   ]
 }

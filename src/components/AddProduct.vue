@@ -58,8 +58,24 @@ export default {
     async addProduct() {
       this.submitted = true;
       let ok = await this.$validator.validate();
-      console.log('form ok', ok);
-      console.log(this.form);
+
+      if (ok) {
+        this.$emit('addProduct', 
+          {...this.form, inventoryStatus: this.form.inventoryStatus === 'true'}
+        );
+
+        this.clear();
+      }
+    },
+    clear() {
+      this.form = {
+      name: '',
+      price: '',
+      brand: '',
+      inventoryStatus: ''
+      };
+
+      this.submitted = false;
     }
   }
 }
